@@ -1,4 +1,4 @@
-using UnityEngine;
+    using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,19 +21,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
-        float moverHorizontal = Input.GetAxis("Horizontal");
-        float moverVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
-        moveDirection = new Vector2(moverHorizontal, moverVertical);
+        moveDirection = new Vector2(moveHorizontal, moveVertical);
 
-        isWalking = Mathf.Abs(moverHorizontal) > 0.01f || Mathf.Abs(moverVertical) > 0.01f;
+        isWalking = Mathf.Abs(moveHorizontal) > 0.01f || Mathf.Abs(moveVertical) > 0.01f;
         if (anim != null)
             anim.SetBool("isWalking", isWalking);
-
         
-        Vector3 movement = new Vector3(moverHorizontal, 0.0f, moverVertical);
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        
         transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
     }
 
